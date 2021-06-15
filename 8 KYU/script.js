@@ -195,3 +195,36 @@ Write a function that will compare two values, one will be a number and one will
 To make this challange harder and to promp the challenger to read up about coercion I have disabled some of the built in methods including .toString(), .join(), .split(), parseInt and .Number(). */
 
 const add = (a, b) => (a == b ? true : false);
+
+//************************************************************ /
+
+/* Square(n) Sum
+
+Complete the square sum function so that it squares each number passed into it and then sums the results together.
+
+For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9. */
+
+const squareSum = (numbers) => numbers.reduce((acc, cur) => cur ** 2 + acc, 0);
+
+//************************************************************ /
+
+/* Exclamation marks series #1: Remove a exclamation mark from the end of string
+
+Description:
+Remove a exclamation mark from the end of string. For a beginner kata, you can assume that the input data is always a string, no need to verify it.
+
+Examples
+remove("Hi!") === "Hi"
+remove("Hi!!!") === "Hi!!"
+remove("!Hi") === "!Hi"
+remove("!Hi!") === "!Hi"
+remove("Hi! Hi!") === "Hi! Hi"
+remove("Hi") === "Hi" */
+
+const remove = (s) =>
+  s[s.length - 1] === "!"
+    ? s
+        .split("")
+        .splice(0, s.length - 1)
+        .join("")
+    : s;
