@@ -85,3 +85,14 @@ const getMiddle = (s) =>
   s.length % 2 === 0
     ? s.substr(s.length / 2 - 1, 2)
     : s.substr(s.length / 2, 1);
+
+//******************************************** */
+
+/* Simple, given a string of words, return the length of the shortest word(s).
+
+String will never be empty and you do not need to account for different data types. */
+
+const findShort = s =>
+  s
+    .split(" ")
+    .reduce((acc, cur) => (acc < cur.length ? acc : cur.length), s.length);
