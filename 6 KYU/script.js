@@ -41,3 +41,45 @@ function likes(names) {
     return `${names[0]}, ${names[1]} and ${names.length - 2} others like this`;
   }
 }
+
+//************************************************************* * /
+
+/* Convert string to camel case
+
+Complete the method/function so that it converts dash/underscore delimited words into camel casing. The first word within the output should be capitalized only if the original word was capitalized (known as Upper Camel Case, also often referred to as Pascal case).
+
+Examples
+"the-stealth-warrior" gets converted to "theStealthWarrior"
+"The_Stealth_Warrior" gets converted to "TheStealthWarrior" */
+
+function toCamelCase(str) {
+  return str.includes("-") && /[A-Z]/.test(str[0])
+    ? str
+        .toLowerCase()
+        .split("-")
+        .map((str, i, arr) => arr[i][0].toUpperCase() + str.slice(1))
+        .join("")
+    : str.includes("_") && /[A-Z]/.test(str[0])
+    ? str
+        .toLowerCase()
+        .split("_")
+        .map((str, i, arr) => arr[i][0].toUpperCase() + str.slice(1))
+        .join("")
+    : str.includes("_")
+    ? str
+        .split("_")
+        .map((str, i, arr) =>
+          arr[i] !== arr[0]
+            ? arr[i][0].toUpperCase() + str.slice(1)
+            : str.toLowerCase()
+        )
+        .join("")
+    : str
+        .split("-")
+        .map((str, i, arr) =>
+          arr[i] !== arr[0]
+            ? arr[i][0].toUpperCase() + str.slice(1)
+            : str.toLowerCase()
+        )
+        .join("");
+}
