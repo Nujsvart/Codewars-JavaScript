@@ -228,3 +228,53 @@ const remove = (s) =>
         .splice(0, s.length - 1)
         .join("")
     : s;
+
+//************************************************************ /
+
+/* Sum of positive
+
+You get an array of numbers, return the sum of all of the positives ones.
+
+Example [1,-4,7,12] => 1 + 7 + 12 = 20
+
+Note: if there is nothing to sum, the sum is default to 0. */
+
+const positiveSum = (arr) =>
+  arr.reduce((sum, cur) => (cur > 0 ? (cur += sum) : sum), 0);
+
+//************************************************************ /
+
+/* Opposite number
+
+Very simple, given a number, find its opposite.
+
+Examples:
+
+1: -1
+14: -14
+-34: 34 */
+
+const opposite = (number) => (!number ? Math.abs(number) : -number);
+
+//************************************************************ /
+
+/* Remove First and Last Character
+
+It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry with strings with less than two characters. */
+
+const removeChar = (str) => str.substr(1, str.length - 2);
+
+//************************************************************ /
+
+/* Implement Array.prototype.filter()
+
+What we want to implement is Array.prototype.filter() function, just like the existing Array.prototype.filter(). Another similar function is _.filter() in underscore.js and lodash.js.
+
+The usage will be quite simple, like:
+
+[1, 2, 3, 4, 5].filter(num => num > 3) == [4, 5]
+Of course, the existing Array.prototype.filter() function has been undefined for the purposes of this Kata. */
+
+Array.prototype.filter = function (func) {
+  return this.reduce((pre, val) => (func(val) ? [...pre, val] : pre), []);
+};
