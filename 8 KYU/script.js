@@ -278,3 +278,119 @@ Of course, the existing Array.prototype.filter() function has been undefined for
 Array.prototype.filter = function (func) {
   return this.reduce((pre, val) => (func(val) ? [...pre, val] : pre), []);
 };
+
+//************************************************************ /
+
+/* Grasshopper - Summation
+
+Summation
+Write a program that finds the summation of every number from 1 to num. The number will always be a positive integer greater than 0.
+
+For example:
+
+summation(2) -> 3
+1 + 2
+
+summation(8) -> 36
+1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 */
+
+const summation = (num) =>
+  Array.from({ length: num }, (num, i) => i + 1).reduce(
+    (sum, cur) => sum + cur
+  );
+
+//************************************************************ /
+
+/* Find the smallest integer in the array
+
+Given an array of integers your solution should find the smallest integer.
+
+For example:
+
+Given [34, 15, 88, 2] your solution will return 2
+Given [34, -345, -1, 100] your solution will return -345
+You can assume, for the purpose of this kata, that the supplied array will not be empty. */
+
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return args.sort((a, b) => a - b)[0];
+  }
+}
+
+//************************************************************ /
+
+/* Remove String Spaces
+
+Simple, remove the spaces from the string, then return the resultant string. */
+
+const noSpace = (x) => [...x].map((s) => s.replace(" ", "")).join("");
+
+//************************************************************ /
+
+/* Convert a Number to a String!
+
+We need a function that can transform a number into a string.
+
+What ways of achieving this do you know?
+
+Examples:
+123 --> "123"
+999 --> "999" */
+
+const numberToString = (num) => num + "";
+
+//************************************************************ /
+
+/* Keep Hydrated!
+
+Nathan loves cycling.
+
+Because Nathan knows it is important to stay hydrated, he drinks 0.5 litres of water per hour of cycling.
+
+You get given the time in hours and you need to return the number of litres Nathan will drink, rounded to the smallest value.
+
+For example:
+
+time = 3 ----> litres = 1
+
+time = 6.7---> litres = 3
+
+time = 11.8--> litres = 5 */
+
+const litres = (time) => Math.floor(time / 2);
+
+//************************************************************ /
+
+/* Abbreviate a Two Word Name
+
+Write a function to convert a name into initials. This kata strictly takes two words with one space in between them.
+
+The output should be two capital letters with a dot separating them.
+
+It should look like this:
+
+Sam Harris => S.H
+
+Patrick Feeney => P.F */
+
+const abbrevName = (name) =>
+  name
+    .split(" ")
+    .map((n) => n[0])
+    .join(".")
+    .toUpperCase();
+
+//************************************************************ /
+
+/* Convert number to reversed array of digits
+
+Given a random non-negative number, you have to return the digits of this number within an array in reverse order.
+
+Example:
+348597 => [7,9,5,8,4,3] */
+
+const digitize = (n) =>
+  String(n)
+    .split("")
+    .map((s) => +s)
+    .reverse();
