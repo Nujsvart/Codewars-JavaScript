@@ -149,3 +149,72 @@ const maskify = (cc) =>
   cc.length <= 1 || !cc
     ? cc
     : cc.substring(cc.length, cc.length - 4).padStart(cc.length, "#");
+
+//******************************************** */
+
+/* Sum of two lowest positive integers
+
+Create a function that returns the sum of the two lowest positive numbers given an array of minimum 4 positive integers. No floats or non-positive integers will be passed.
+
+For example, when an array is passed like [19, 5, 42, 2, 77], the output should be 7.
+
+[10, 343445353, 3453445, 3453545353453] should return 3453455. */
+
+const sumTwoSmallestNumbers = (numbers) =>
+  numbers.sort((a, b) => a - b).reduce((s, c, _, arr) => arr[0] + arr[1]);
+
+//******************************************** */
+
+/* Two to One
+
+Take 2 strings s1 and s2 including only letters from ato z. Return a new sorted string, the longest possible, containing distinct letters - each taken only once - coming from s1 or s2.
+
+Examples:
+a = "xyaabbbccccdefww"
+b = "xxxxyyyyabklmopq"
+longest(a, b) -> "abcdefklmopqwxy"
+
+a = "abcdefghijklmnopqrstuvwxyz"
+longest(a, a) -> "abcdefghijklmnopqrstuvwxyz" */
+
+const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join("");
+
+//******************************************** */
+
+/* Reverse words
+
+Complete the function that accepts a string parameter, and reverses each word in the string. All spaces in the string should be retained.
+
+Examples
+"This is an example!" ==> "sihT si na !elpmaxe"
+"double  spaces"      ==> "elbuod  secaps" */
+
+const reverseWords = (str) =>
+  str
+    .split(" ")
+    .map((s) => [...s].reverse().join(""))
+    .join(" ");
+
+//******************************************** */
+
+/* Odd or Even ?
+
+Task:
+Given a list of integers, determine whether the sum of its elements is odd or even.
+
+Give your answer as a string matching "odd" or "even".
+
+If the input array is empty consider it as: [0] (array with a zero).
+
+Examples:
+Input: [0]
+Output: "even"
+
+Input: [0, 1, 4]
+Output: "odd"
+
+Input: [0, -1, -5]
+Output: "even" */
+
+const oddOrEven = (array) =>
+  array.reduce((sum, n) => sum + n, 0) % 2 === 0 ? "even" : "odd";
