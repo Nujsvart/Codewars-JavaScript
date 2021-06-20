@@ -394,3 +394,102 @@ const digitize = (n) =>
     .split("")
     .map((s) => +s)
     .reverse();
+
+//************************************************************ /
+
+/*  Return Negative
+
+ In this simple assignment you are given a number and have to make it negative. But maybe the number is already negative?
+
+Example:
+
+makeNegative(1); // return -1
+makeNegative(-5); // return -5
+makeNegative(0); // return 0
+makeNegative(0.12); // return -0.12
+Notes:
+
+The number can be negative already, in which case no change is required.
+Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense. */
+
+const makeNegative = (num) => (num > 0 ? -num : num);
+
+//************************************************************ /
+
+/* String repeat
+
+Write a function called repeatStr which repeats the given string string exactly n times.
+
+repeatStr(6, "I") // "IIIIII"
+repeatStr(5, "Hello") // "HelloHelloHelloHelloHello" */
+
+const repeatStr = (n, s) => s.repeat(n);
+
+//************************************************************ /
+
+/* Reversed Strings
+
+Complete the solution so that it reverses the string passed into it.
+
+'world'  =>  'dlrow' */
+
+const solution = (str) => [...str].reverse().join("");
+
+//************************************************************ /
+
+/* A Needle in the Haystack
+
+Can you find the needle in the haystack?
+
+Write a function findNeedle() that takes an array full of junk but containing one "needle"
+
+After your function finds the needle it should return a message (as a string) that says:
+
+"found the needle at position " plus the index it found the needle, so:
+
+findNeedle(['hay', 'junk', 'hay', 'hay', 'moreJunk', 'needle', 'randomJunk'])
+should return "found the needle at position 5" */
+
+const findNeedle = (haystack) =>
+  `found the needle at position ${haystack.indexOf("needle")}`;
+
+//************************************************************ /
+
+/* Beginner - Lost Without a Map
+
+Given an array of integers, return a new array with each value doubled.
+
+For example:
+
+[1, 2, 3] --> [2, 4, 6]
+
+For the beginner, try to use the map method - it comes in very handy quite a lot so is a good one to know. */
+
+const maps = (x) => x.map((n) => n * 2);
+
+//************************************************************ /
+
+/* Sum without highest and lowest number
+
+Sum all the numbers of the array (in F# and Haskell you get a list) except the highest and the lowest element (the value, not the index!).
+(The highest/lowest element is respectively only one element at each edge, even if there are more than one with the same value!)
+
+Example:
+
+{ 6, 2, 1, 8, 10 } => 16
+{ 1, 1, 11, 2, 3 } => 6
+
+If array is empty, null or None, or if only 1 Element exists, return 0.
+Note:In C++ instead null an empty vector is used. In C there is no null. ;-)
+
+
+-- There's no null in Haskell, therefore Maybe [Int] is used. Nothing represents null.
+Have fun coding it and please don't forget to vote and rank this kata! :-)
+
+I have created other katas. Have a look if you like coding and challenges. */
+
+const sumArray = (arr) =>
+  !Array.isArray(arr) || arr.length < 2
+    ? 0
+    : arr.reduce((sum, cur) => sum + cur, 0) -
+      (Math.max(...arr) + Math.min(...arr));
