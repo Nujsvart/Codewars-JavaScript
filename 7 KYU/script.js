@@ -114,3 +114,38 @@ Note: for this kata y isn't considered a vowel. */
 
 const disemvowel = (str) => str.replace(/A|E|I|O|U|a|e|i|o|u/g, "");
 
+//******************************************** */
+
+/* List Filtering
+
+In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+Example
+filter_list([1,2,'a','b']) == [1,2]
+filter_list([1,'a','b',0,15]) == [1,0,15]
+filter_list([1,2,'aasf','1','123',123]) == [1,2,123] */
+
+const filter_list = (l) => l.filter((n) => n === Number(n));
+
+//******************************************** */
+
+/* 
+
+Usually when you buy something, you're asked whether your credit card number, phone number or answer to your most secret question is still correct. However, since someone could look over your shoulder, you don't want that shown on your screen. Instead, we mask it.
+
+Your task is to write a function maskify, which changes all but the last four characters into '#'.
+
+Examples
+maskify("4556364607935616") == "############5616"
+maskify(     "64607935616") ==      "#######5616"
+maskify(               "1") ==                "1"
+maskify(                "") ==                 ""
+
+// "What was the name of your first pet?"
+maskify("Skippy")                                   == "##ippy"
+maskify("Nananananananananananananananana Batman!") == "####################################man!" */
+
+const maskify = (cc) =>
+  cc.length <= 1 || !cc
+    ? cc
+    : cc.substring(cc.length, cc.length - 4).padStart(cc.length, "#");
