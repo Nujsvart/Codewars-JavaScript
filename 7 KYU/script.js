@@ -6,7 +6,7 @@ We will consider a, e, i, o, u as vowels for this Kata (but not y).
 
 The input string will only consist of lower case letters and/or spaces. */
 
-const getCount = (str) => {
+const getCount = str => {
   const vowels = ["a", "e", "i", "o", "u"];
   return str
     .split("")
@@ -26,7 +26,7 @@ accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
 accum("cwAt") -> "C-Ww-Aaa-Tttt"
 The parameter of accum is a string which includes only letters from a..z and A..Z. */
 
-const accum = (s) =>
+const accum = s =>
   s
     .toLowerCase()
     .split("")
@@ -50,10 +50,10 @@ All numbers are valid Int32, no need to validate them.
 There will always be at least one number in the input string.
 Output string must be two numbers separated by a single space, and highest number is first. */
 
-const highAndLow = (numbers) => {
+const highAndLow = numbers => {
   const arr = numbers
     .split(" ")
-    .map((num) => +num)
+    .map(num => +num)
     .sort((a, b) => b - a);
   return `${arr[0]} ${arr[arr.length - 1]}`;
 };
@@ -81,7 +81,7 @@ A word (string) of length 0 < str < 1000 (In javascript you may get slightly mor
 
 The middle character(s) of the word represented as a string. */
 
-const getMiddle = (s) =>
+const getMiddle = s =>
   s.length % 2 === 0
     ? s.substr(s.length / 2 - 1, 2)
     : s.substr(s.length / 2, 1);
@@ -93,7 +93,7 @@ Simple, given a string of words, return the length of the shortest word(s).
 
 String will never be empty and you do not need to account for different data types. */
 
-const findShort = (s) =>
+const findShort = s =>
   s
     .split(" ")
     .reduce((acc, cur) => (acc < cur.length ? acc : cur.length), s.length);
@@ -112,7 +112,7 @@ For example, the string "This website is for losers LOL!" would become "Ths wbst
 
 Note: for this kata y isn't considered a vowel. */
 
-const disemvowel = (str) => str.replace(/A|E|I|O|U|a|e|i|o|u/g, "");
+const disemvowel = str => str.replace(/A|E|I|O|U|a|e|i|o|u/g, "");
 
 //******************************************** */
 
@@ -125,7 +125,7 @@ filter_list([1,2,'a','b']) == [1,2]
 filter_list([1,'a','b',0,15]) == [1,0,15]
 filter_list([1,2,'aasf','1','123',123]) == [1,2,123] */
 
-const filter_list = (l) => l.filter((n) => n === Number(n));
+const filter_list = l => l.filter(n => n === Number(n));
 
 //******************************************** */
 
@@ -145,7 +145,7 @@ maskify(                "") ==                 ""
 maskify("Skippy")                                   == "##ippy"
 maskify("Nananananananananananananananana Batman!") == "####################################man!" */
 
-const maskify = (cc) =>
+const maskify = cc =>
   cc.length <= 1 || !cc
     ? cc
     : cc.substring(cc.length, cc.length - 4).padStart(cc.length, "#");
@@ -160,7 +160,7 @@ For example, when an array is passed like [19, 5, 42, 2, 77], the output should 
 
 [10, 343445353, 3453445, 3453545353453] should return 3453455. */
 
-const sumTwoSmallestNumbers = (numbers) =>
+const sumTwoSmallestNumbers = numbers =>
   numbers.sort((a, b) => a - b).reduce((s, c, _, arr) => arr[0] + arr[1]);
 
 //******************************************** */
@@ -189,10 +189,10 @@ Examples
 "This is an example!" ==> "sihT si na !elpmaxe"
 "double  spaces"      ==> "elbuod  secaps" */
 
-const reverseWords = (str) =>
+const reverseWords = str =>
   str
     .split(" ")
-    .map((s) => [...s].reverse().join(""))
+    .map(s => [...s].reverse().join(""))
     .join(" ");
 
 //******************************************** */
@@ -216,5 +216,33 @@ Output: "odd"
 Input: [0, -1, -5]
 Output: "even" */
 
-const oddOrEven = (array) =>
+const oddOrEven = array =>
   array.reduce((sum, n) => sum + n, 0) % 2 === 0 ? "even" : "odd";
+
+//******************************************** */
+
+/* Exes and Ohs
+
+Check to see if a string has the same amount of 'x's and 'o's. The method must return a boolean and be case insensitive. The string can contain any char.
+
+Examples input/output:
+
+XO("ooxx") => true
+XO("xooxx") => false
+XO("ooxXm") => true
+XO("zpzpzpp") => true // when no 'x' and 'o' is present should return true
+XO("zzoo") => false */
+
+function XO(str) {
+  const x = str
+    .toLowerCase()
+    .split("")
+    .filter(s => s === "x");
+  const o = str
+    .toLowerCase()
+    .split("")
+    .filter(o => o === "o");
+  return x.length === o.length;
+}
+
+//******************************************** */
