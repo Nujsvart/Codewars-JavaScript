@@ -82,7 +82,7 @@ If the winner is Conor McGregor he will most undoubtedly say:
 "I'd like to take this chance to apologize.. To absolutely NOBODY!"
 Good Luck! */
 
-const quote = (fighter) => {
+const quote = fighter => {
   let george = "George Saint Pierre";
   let conor = "Conor McGregor";
   if (
@@ -126,7 +126,7 @@ oddCount(7) //=> 3, i.e [1, 3, 5]
 oddCount(15) //=> 7, i.e [1, 3, 5, 7, 9, 11, 13]
 Expect large Inputs! */
 
-const oddCount = (n) => Math.floor(n / 2);
+const oddCount = n => Math.floor(n / 2);
 
 //************************************************************ /
 
@@ -152,7 +152,7 @@ What We're Testing
 We're testing basic loops and math operations. This is for beginners who are just learning loops and math operations.
 Advanced users may find this extremely easy and can easily write this in one line. */
 
-const sum = (numbers) =>
+const sum = numbers =>
   numbers.length > 0 ? numbers.reduce((acc, cur) => acc + cur, 0) : 0;
 
 //************************************************************ /
@@ -168,7 +168,7 @@ For example, the following code will result in an array containing the numbers 0
 arr(5) // => [0,1,2,3,4]
 Note: The parameter is optional. So you have to give it a default value. */
 
-const arr = (N) => Array.from({ length: N }, (_, i) => i);
+const arr = N => Array.from({ length: N }, (_, i) => i);
 
 //************************************************************ /
 
@@ -204,7 +204,7 @@ Complete the square sum function so that it squares each number passed into it a
 
 For example, for [1, 2, 2] it should return 9 because 1^2 + 2^2 + 2^2 = 9. */
 
-const squareSum = (numbers) => numbers.reduce((acc, cur) => cur ** 2 + acc, 0);
+const squareSum = numbers => numbers.reduce((acc, cur) => cur ** 2 + acc, 0);
 
 //************************************************************ /
 
@@ -221,7 +221,7 @@ remove("!Hi!") === "!Hi"
 remove("Hi! Hi!") === "Hi! Hi"
 remove("Hi") === "Hi" */
 
-const remove = (s) =>
+const remove = s =>
   s[s.length - 1] === "!"
     ? s
         .split("")
@@ -239,7 +239,7 @@ Example [1,-4,7,12] => 1 + 7 + 12 = 20
 
 Note: if there is nothing to sum, the sum is default to 0. */
 
-const positiveSum = (arr) =>
+const positiveSum = arr =>
   arr.reduce((sum, cur) => (cur > 0 ? (cur += sum) : sum), 0);
 
 //************************************************************ /
@@ -254,7 +254,7 @@ Examples:
 14: -14
 -34: 34 */
 
-const opposite = (number) => (!number ? Math.abs(number) : -number);
+const opposite = number => (!number ? Math.abs(number) : -number);
 
 //************************************************************ /
 
@@ -262,7 +262,7 @@ const opposite = (number) => (!number ? Math.abs(number) : -number);
 
 It's pretty straightforward. Your goal is to create a function that removes the first and last characters of a string. You're given one parameter, the original string. You don't have to worry with strings with less than two characters. */
 
-const removeChar = (str) => str.substr(1, str.length - 2);
+const removeChar = str => str.substr(1, str.length - 2);
 
 //************************************************************ /
 
@@ -294,7 +294,7 @@ summation(2) -> 3
 summation(8) -> 36
 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 */
 
-const summation = (num) =>
+const summation = num =>
   Array.from({ length: num }, (num, i) => i + 1).reduce(
     (sum, cur) => sum + cur
   );
@@ -323,7 +323,7 @@ class SmallestIntegerFinder {
 
 Simple, remove the spaces from the string, then return the resultant string. */
 
-const noSpace = (x) => [...x].map((s) => s.replace(" ", "")).join("");
+const noSpace = x => [...x].map(s => s.replace(" ", "")).join("");
 
 //************************************************************ /
 
@@ -337,7 +337,7 @@ Examples:
 123 --> "123"
 999 --> "999" */
 
-const numberToString = (num) => num + "";
+const numberToString = num => num + "";
 
 //************************************************************ /
 
@@ -357,7 +357,7 @@ time = 6.7---> litres = 3
 
 time = 11.8--> litres = 5 */
 
-const litres = (time) => Math.floor(time / 2);
+const litres = time => Math.floor(time / 2);
 
 //************************************************************ /
 
@@ -373,10 +373,10 @@ Sam Harris => S.H
 
 Patrick Feeney => P.F */
 
-const abbrevName = (name) =>
+const abbrevName = name =>
   name
     .split(" ")
-    .map((n) => n[0])
+    .map(n => n[0])
     .join(".")
     .toUpperCase();
 
@@ -389,10 +389,10 @@ Given a random non-negative number, you have to return the digits of this number
 Example:
 348597 => [7,9,5,8,4,3] */
 
-const digitize = (n) =>
+const digitize = n =>
   String(n)
     .split("")
-    .map((s) => +s)
+    .map(s => +s)
     .reverse();
 
 //************************************************************ /
@@ -412,7 +412,7 @@ Notes:
 The number can be negative already, in which case no change is required.
 Zero (0) is not checked for any specific sign. Negative zeros make no mathematical sense. */
 
-const makeNegative = (num) => (num > 0 ? -num : num);
+const makeNegative = num => (num > 0 ? -num : num);
 
 //************************************************************ /
 
@@ -433,7 +433,7 @@ Complete the solution so that it reverses the string passed into it.
 
 'world'  =>  'dlrow' */
 
-const solution = (str) => [...str].reverse().join("");
+const solution = str => [...str].reverse().join("");
 
 //************************************************************ /
 
@@ -450,7 +450,7 @@ After your function finds the needle it should return a message (as a string) th
 findNeedle(['hay', 'junk', 'hay', 'hay', 'moreJunk', 'needle', 'randomJunk'])
 should return "found the needle at position 5" */
 
-const findNeedle = (haystack) =>
+const findNeedle = haystack =>
   `found the needle at position ${haystack.indexOf("needle")}`;
 
 //************************************************************ /
@@ -465,7 +465,7 @@ For example:
 
 For the beginner, try to use the map method - it comes in very handy quite a lot so is a good one to know. */
 
-const maps = (x) => x.map((n) => n * 2);
+const maps = x => x.map(n => n * 2);
 
 //************************************************************ /
 
@@ -488,7 +488,7 @@ Have fun coding it and please don't forget to vote and rank this kata! :-)
 
 I have created other katas. Have a look if you like coding and challenges. */
 
-const sumArray = (arr) =>
+const sumArray = arr =>
   !Array.isArray(arr) || arr.length < 2
     ? 0
     : arr.reduce((sum, cur) => sum + cur, 0) -
@@ -507,15 +507,28 @@ If the input array is empty or null, return an empty array.
 Example
 For input [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, -11, -12, -13, -14, -15], you should return [10, -65]. */
 
-const countPositivesSumNegatives = (input) => {
+const countPositivesSumNegatives = input => {
   const newArr = [];
   if (Array.isArray(input) && input.length >= 1) {
-    newArr.push(input.filter((p) => p > 0).length);
-    newArr.push(input.filter((n) => n < 0).reduce((sum, cur) => sum + cur, 0));
+    newArr.push(input.filter(p => p > 0).length);
+    newArr.push(input.filter(n => n < 0).reduce((sum, cur) => sum + cur, 0));
     return newArr;
   } else {
     return newArr;
   }
 };
+
+//************************************************************ /
+
+/* Get the mean of an array
+
+It's the academic year's end, fateful moment of your school report. The averages must be calculated. All the students come to you and entreat you to calculate their average for them. Easy ! You just need to write a script.
+
+Return the average of the given array rounded down to its nearest integer.
+
+The array will never be empty. */
+
+const getAverage = marks =>
+  Math.floor(marks.reduce((sum, cur, _, arr) => sum + cur / arr.length, 0));
 
 //************************************************************ /
