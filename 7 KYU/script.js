@@ -246,3 +246,57 @@ function XO(str) {
 }
 
 //******************************************** */
+
+/* The sortReloaded() method
+
+Array.prototype.sort() is a pretty handy feature of the JS core, but when it comes to order an array of numbers, sometimes it can pollute our code.
+
+In this Kata you have to extend the Array object and add the sortReloaded(dir) method to it in order to make this task easier and cleaner.
+
+It should receive a dir parameter which has with two possible values 'asc' or 'desc', and return a new array ordered ascendingly or descendingly respectively. If no dir parameter is set it should assume 'asc' by default. If it has an invalid value, return false.
+
+For the effects of this Kata, all the arrays will contain only Integer numbers so you don't have to care about validating them. */
+
+Array.prototype.sortReloaded = function (dir = "asc") {
+  return dir === "asc"
+    ? this.slice().sort((a, b) => a - b)
+    : dir === "desc"
+    ? this.slice().sort((a, b) => b - a)
+    : false;
+};
+
+//******************************************** */
+
+/* Square Every Digit
+
+Welcome. In this kata, you are asked to square every digit of a number and concatenate them.
+
+For example, if we run 9119 through the function, 811181 will come out, because 92 is 81 and 12 is 1.
+
+Note: The function accepts an integer and returns an integer */
+
+const squareDigits = num =>
+  Number(
+    String(num)
+      .split("")
+      .map(n => n * n)
+      .join("")
+  );
+
+//******************************************** */
+
+/* Regex validate PIN code
+
+ATM machines allow 4 or 6 digit PIN codes and PIN codes cannot contain anything but exactly 4 digits or exactly 6 digits.
+
+If the function is passed a valid PIN string, return true, else return false.
+
+Examples
+"1234"   -->  true
+"12345"  -->  false
+"a234"   -->  false */
+
+const validatePIN = pin => /^(\d{4}|\d{6})$/.test(pin);
+
+//******************************************** */
+
