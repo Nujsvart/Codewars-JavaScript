@@ -96,7 +96,7 @@ Note: If the number is a multiple of both 3 and 5, only count it once. Also, if 
 
 Courtesy of projecteuler.net */
 
-const solution = (number) => {
+const solution = number => {
   let sum = 0;
   for (let i = 0; i < number; i++) {
     if (i % 3 === 0 || i % 5 === 0) {
@@ -122,11 +122,11 @@ iqTest("1 2 1 1") => 2 // Second number is even, while the rest of the numbers a
 function iqTest(numbers) {
   const odd = numbers
     .split(" ")
-    .filter((num) => num % 2 !== 0)
+    .filter(num => num % 2 !== 0)
     .join(" ");
   const even = numbers
     .split(" ")
-    .filter((num) => num % 2 === 0)
+    .filter(num => num % 2 === 0)
     .join(" ");
   return [...odd].length < [...even].length
     ? numbers.split(" ").indexOf(odd) + 1
@@ -147,8 +147,21 @@ spinWords("Hey fellow warriors") => "Hey wollef sroirraw"
 spinWords("This is a test") => "This is a test" 
 spinWords("This is another test") => "This is rehtona test" */
 
-const spinWords = (string) =>
+const spinWords = string =>
   string
     .split(" ")
-    .map((str) => (str.length >= 5 ? str.split("").reverse().join("") : str))
+    .map(str => (str.length >= 5 ? str.split("").reverse().join("") : str))
     .join(" ");
+
+//************************************************************* * /
+
+/* Break camelCase
+
+Complete the solution so that the function will break up camel casing, using a space between words.
+
+Example
+"camelCasing"  =>  "camel Casing"
+"identifier"   =>  "identifier"
+""             =>  "" */
+
+const solution = string => string.split(/(?=[A-Z])/).join(" ");
