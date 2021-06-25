@@ -532,3 +532,98 @@ const getAverage = marks =>
   Math.floor(marks.reduce((sum, cur, _, arr) => sum + cur / arr.length, 0));
 
 //************************************************************ /
+
+/* Century From Year
+
+The first century spans from the year 1 up to and including the year 100, The second - from the year 101 up to and including the year 200, etc.
+
+Task :
+Given a year, return the century it is in.
+
+Input , Output Examples :
+1705 --> 18
+1900 --> 19
+1601 --> 17
+2000 --> 20 */
+
+const century = year => Math.ceil(year / 100);
+
+//************************************************************ /
+
+/* Is n divisible by x and y ?
+
+Create a function that checks if a number n is divisible by two numbers x AND y. All inputs are positive, non-zero digits.
+
+Examples:
+1) n =   3, x = 1, y = 3 =>  true because   3 is divisible by 1 and 3
+2) n =  12, x = 2, y = 6 =>  true because  12 is divisible by 2 and 6
+3) n = 100, x = 5, y = 3 => false because 100 is not divisible by 3
+4) n =  12, x = 7, y = 5 => false because  12 is neither divisible by 7 nor 5 */
+
+const isDivisible = (n, x, y) => n % x === 0 && n % y === 0;
+
+//************************************************************ /
+
+/* Invert values
+
+Given a set of numbers, return the additive inverse of each. Each positive becomes negatives, and the negatives become positives.
+
+invert([1,2,3,4,5]) == [-1,-2,-3,-4,-5]
+invert([1,-2,3,-4,5]) == [-1,2,-3,4,-5]
+invert([]) == []
+You can assume that all values are integers. Do not mutate the input array/list. */
+
+const invert = array => array.map(n => (n >= 0 ? -n : Math.abs(n)));
+
+//************************************************************ /
+
+/* Basic Mathematical Operations
+
+Your task is to create a function that does four basic mathematical operations.
+
+The function should take three arguments - operation(string/char), value1(number), value2(number).
+The function should return result of numbers after applying the chosen operation.
+
+Examples
+basicOp('+', 4, 7)         // Output: 11
+basicOp('-', 15, 18)       // Output: -3
+basicOp('*', 5, 5)         // Output: 25
+basicOp('/', 49, 7)        // Output: 7 */
+
+const basicOp = (operation, value1, value2) => {
+  switch (operation) {
+    case "+":
+      return value1 + value2;
+    case "-":
+      return value1 - value2;
+    case "*":
+      return value1 * value2;
+    case "/":
+      return value1 / value2;
+  }
+};
+
+//************************************************************ /
+
+/* Reversed Words
+
+Complete the solution so that it reverses all of the words within the string passed in.
+
+Example:
+
+"The greatest victory is that which requires no battle" --> "battle no requires which that is victory greatest The" */
+
+const reverseWords = str => str.split(" ").reverse().join(" ");
+
+//************************************************************ /
+
+/* Calculate average
+
+Write a function which calculates the average of the numbers in a given list.
+
+Note: Empty arrays should return 0. */
+
+const find_average = array =>
+  array.reduce((sum, cur) => sum + cur, 0) / array.length;
+
+//************************************************************ /
